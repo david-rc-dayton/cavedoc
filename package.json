@@ -2,7 +2,7 @@
   "name": "cavedoc",
   "version": "1.0.0",
   "description": "Docstrings for JavaScript.",
-  "main": "index.js",
+  "main": "cavedoc.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,6 +16,6 @@
     "function",
     "comment"
   ],
-  "author": "David RC Dayton",
+  "author": "David RC Dayton <david.rc.dayton@gmail.com>",
   "license": "MIT"
 }
