@@ -30,6 +30,10 @@
         return docstring;
     }
 
+    exports.doc = function(f) {
+        console.log(parseDoc(f));
+    }
+
     Object.defineProperty(Function.prototype, '__doc__', {
         get: function () {
             return parseDoc(this);
