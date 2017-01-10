@@ -37,14 +37,14 @@ var convolutedSquare = function (x) {
      return output;
 }
 
-console.log('=== square(x) ===');
-console.log('--- __doc__ ---');
+console.log('\n=== square(x) ===');
+console.log('\n--- __doc__ ---\n');
 console.log(square.__doc__);
-console.log('--- doc() ---');
+console.log('\n--- doc() ---\n');
 CaveDoc.doc(square);
 
-console.log('=== convolutedSquare(x) ===');
-console.log('--- __doc__ ---');
+console.log('\n=== convolutedSquare(x) ===');
+console.log('\n--- __doc__ ---\n');
 console.log(convolutedSquare.__doc__);
-console.log('--- doc() ---');
+console.log('\n--- doc() ---\n');
 CaveDoc.doc(convolutedSquare);
