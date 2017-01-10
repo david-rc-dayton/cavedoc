@@ -1,7 +1,6 @@
-Object.defineProperty(Function.prototype, '__doc__', {
-    get: function () {
-        'use strict';
-        var comment = this.toString();
+(function (exports) {
+    var parseDoc = function (f) {
+        var comment = f.toString();
         var docstring = '';
 
         // find jsdoc style block
@@ -18,13 +17,22 @@ Object.defineProperty(Function.prototype, '__doc__', {
 
             // cleanup lines
             for (var i = 0; i < lines.length; i++) {
-                lines[i] = lines[i].replace(/\s+\*/, ''); // jsdoc bar
-                lines[i] = lines[i].replace(/^\s/, ''); // first space
-                lines[i] = lines[i].replace(/\s+$/, ''); // trailing whitespace
+                // jsdoc bar
+                lines[i] = lines[i].replace(/\s+\*/, '');
+                // first space
+                lines[i] = lines[i].replace(/^\s/, '');
+                // trailing whitespace
+                lines[i] = lines[i].replace(/\s+$/, '');
             }
             docstring = lines.join('\n');
         }
 
         return docstring;
     }
-});
+
+    Object.defineProperty(Function.prototype, '__doc__', {
+        get: function () {
+            parseDoc(f);
+        }
+    });
+})(typeof exports === 'undefined' ? this['CaveDoc'] = {} : exports);
