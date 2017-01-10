@@ -32,7 +32,7 @@
 
     Object.defineProperty(Function.prototype, '__doc__', {
         get: function () {
-            parseDoc(f);
+            return parseDoc(this);
         }
     });
 })(typeof exports === 'undefined' ? this['CaveDoc'] = {} : exports);
