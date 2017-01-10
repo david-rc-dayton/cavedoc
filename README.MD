@@ -5,28 +5,32 @@ Docstrings for JavaScript.
 Adds the `__doc__` property to the `Function.prototype`, to allow documentation
 lookup from the NodeJS or Browser REPL (similar to Python or Clojure).
 Docstrings are entered inside the function definition, using JSDoc's
-`/** <text_here> */` syntax. Inspiration and boilerplate are borrowed from
-Monolithed's [\_\_doc\_\_](https://github.com/monolithed/__doc__) project.
+`/** <text_here> */` syntax. The function documentation can also be accessed by
+calling CaveDoc's `doc()` function. Inspiration and boilerplate are borrowed
+from Monolithed's [\_\_doc\_\_](https://github.com/monolithed/__doc__) project.
 
 ## Example
 
 Implementing a single line docstring:
 
 ```javascript
-require('cavedoc');
+var CaveDoc = require('cavedoc');
 
 function square(x) {
     /** Return the square of the input argument. */
     return x * x;
 }
 
-square.__doc__ // => "Return the square of the input argument."
+CaveDoc.doc(square);
+// - or -
+square.__doc__;
+// => "Return the square of the input argument."
 ```
 
 Implementing a multi-line docstring:
 
 ```javascript
-require('cavedoc');
+var CaveDoc = require('cavedoc');
 
 var convolutedSquare = function (x) {
     /**
@@ -55,20 +59,23 @@ var convolutedSquare = function (x) {
      return output;
 }
 
-convolutedSquare.__doc__ // =>
-    // "An unnecessarily complex implementation of the square function.
-    //
-    //  Takes a single number as an input argument, and returns it's square.
-    //  Fractional values will be truncated to an integer.
-    //
-    //  Args:
-    //      square - input number, must be a positive integer
-    //
-    //  Returns:
-    //      a positive integer
-    //
-    //  Raises:
-    //      Error - if input is not positive"
+CaveDoc.doc(convolutedSquare);
+// - or -
+convolutedSquare.__doc__;
+// =>
+// "An unnecessarily complex implementation of the square function.
+//
+//  Takes a single number as an input argument, and returns it's square.
+//  Fractional values will be truncated to an integer.
+//
+//  Args:
+//      square - input number, must be a positive integer
+//
+//  Returns:
+//      a positive integer
+//
+//  Raises:
+//      Error - if input is not positive"
 ```
 
 ## Installation
